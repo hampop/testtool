@@ -10,9 +10,9 @@ plugins {
     id 'com.matthewprenger.cursegradle' version '1.4.0'
 }
 
-version = project.mod_version
+version = '1.0'
 group = project.maven_group
-archivesBaseName = project.archives_base_name
+archivesBaseName = 'tool'
 
 // Set the toolchain version to decouple the Java we run Gradle with from the Java used to compile and run the mod
 java {
@@ -100,8 +100,12 @@ dependencies {
         implementation 'com.cleanroommc:assetmover:2.5'
     }
     if (project.use_mixins.toBoolean()) {
-        implementation 'zone.rong:mixinbooter:7.1'
+        implementation 'zone.rong:mixinbooter:8.4'
     }
+    implementation "org.lwjgl.lwjgl:lwjgl:2.9.3"
+    implementation "org.lwjgl.lwjgl:lwjgl_util:2.9.3"
+    implementation files('libs/DynamicLights-1.12.2.jar')
+    implementation files('libs/mixinbooter-8.4.jar')
 
     // Example of deobfuscating a dependency
     // implementation rfg.deobf('curse.maven:had-enough-items-557549:4543375')
